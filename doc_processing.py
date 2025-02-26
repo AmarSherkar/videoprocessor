@@ -8,16 +8,18 @@ from docx.shared import Pt, RGBColor, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
-from dotenv import load_dotenv
 import json
 import re
 import xml.etree.ElementTree as ET
 
-# Load environment variables from .env file
-load_dotenv()
+# Fetch API Key from environment or Streamlit Secrets
+if "STREAMLIT" in os.environ:
+    import streamlit as st
+    GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+else:
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# Configure API Key (Ensure to set this in your environment)
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+# Configure API Key
 genai.configure(api_key=GEMINI_API_KEY)
 
 def verify_video(video_path):
