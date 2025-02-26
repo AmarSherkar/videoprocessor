@@ -18,6 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Set up environment
+        run: echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> $GITHUB_ENV
+
       - name: Notify Streamlit Cloud
         run: echo "Changes pushed to main - Streamlit Cloud will auto-deploy."
 
@@ -26,4 +29,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Streamlit App
-        run: curl -s https://videoprocess.streamlit.app > /dev/null || echo "Streamlit app is down"
+        run: curl -s https://videoprocess.streamlit.app > /dev/null || echo "Streamlit app is down"
