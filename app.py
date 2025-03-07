@@ -4,11 +4,15 @@ from dotenv import load_dotenv
 import time
 from doc_processing import process_video  # Import the processing function
 hide_github_icon = """
-    <style>
-        .viewerBadge_container__1QSob {display: none;}  /* Hides GitHub icon */
-    </style>
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+.css-1v3fvcr {visibility: hidden;}
+</style>
 """
 
+# Inject custom CSS
 st.markdown(hide_github_icon, unsafe_allow_html=True)
 load_dotenv()
 
