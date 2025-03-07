@@ -1,2 +1,2 @@
 [browser]
-showSidebarNavigation = false
+gatherUsageStats = false
