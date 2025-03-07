@@ -3,7 +3,13 @@ import os
 from dotenv import load_dotenv
 import time
 from doc_processing import process_video  # Import the processing function
+hide_github_icon = """
+    <style>
+        .viewerBadge_container__1QSob {display: none;}  /* Hides GitHub icon */
+    </style>
+"""
 
+st.markdown(hide_github_icon, unsafe_allow_html=True)
 load_dotenv()
 
 def save_uploaded_file(uploaded_file, save_path):
